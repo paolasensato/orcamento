@@ -1,0 +1,47 @@
+AllCops:
+ SuggestExtensions: false
+ NewCops: enable
+ Exclude:
+   - 'bin/**/*'
+   - 'vendor/**/*'
+   - 'db/**/*'
+   - 'config/**/*'
+   - 'script/**/*'
+   - 'spec/rails_helper.rb'
+   - 'node_modules/**/*'
+   - 'Gemfile'
+   - 'test/**'
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/MethodLength:
+  Max: 15
+
+Metrics/BlockLength:
+  Exclude:
+    - "spec/factories/**"
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+ Enabled: false
+
+Style/SymbolArray:
+ EnforcedStyle: brackets
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+Naming/AsciiIdentifiers:
+  Enabled: true
+  Exclude:
+    - "features/step_definitions/**/*.rb"
+
+Layout/LineLength:
+ Max: 150
+ Exclude:
+   - "app/models/**/*"
+
+
