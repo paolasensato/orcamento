@@ -1,24 +1,52 @@
-# README
+# Setup do Projeto
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 1. Clone
 
-Things you may want to cover:
+Acesse o terminal e faça o download do repositório com o seguinte comando:
 
-* Ruby version
+```bas
+git clone https://github.com/paolasensato/orcamento-api.git
+```
 
-* System dependencies
+## 2. Criação e Configuração da database `config/database.yml`
 
-* Configuration
+É necessário criar o arquivo de configuração do banco de dados executando no terminal o comando abaixo:
 
-* Database creation
+```
+cp config/database.example.yml config/database.yml
+```
 
-* Database initialization
+Obs: Caso a senha do seu mysql seja diferente de `root` altere o password no arquivo gerado.
 
-* How to run the test suite
+## 3. Instalar gems (libs)
 
-* Services (job queues, cache servers, search engines, etc.)
+Aqui eu uso o `rvm` para gerenciar as minhas versões do ruby.
 
-* Deployment instructions
+O `bundle` ira instalar todas as gems que foram definidas no Gemfile.
 
-* ...
+```
+rvm use
+```
+
+```
+rvm install 3.2.0
+```
+
+```
+bundle install
+```
+
+## 4. Banco - criação e migrações
+
+Execute no terminal o seguinte comando:
+```
+rails db:create db:migrate
+```
+
+## 5. Testes
+
+Para realizar os testes na api execute o comando abaixo dentro da pasta do projeto:
+
+```
+cucumber
+```
