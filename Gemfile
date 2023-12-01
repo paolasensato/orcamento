@@ -14,6 +14,7 @@ gem 'puma', '~> 5.0'
 gem 'rack-cors'
 gem 'rails', '~> 7.0.7'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'active_model_serializers'
 
 group :development, :test do
   gem 'byebug'
