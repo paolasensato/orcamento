@@ -9,7 +9,7 @@ end
 
 Dado('informações válidas para o cadastro de produto do orçamento') do
   @body = {
-    nome: Faker::Book,
+    nome: Faker::Book.title,
     valor: Faker::Number.positive
   }
 end
