@@ -1,0 +1,38 @@
+version: '3.7'
+
+networks:
+  rede:
+    driver: bridge
+
+services:
+
+  api:
+    build: .
+    restart: on-failure
+    ports:
+        - 8500:3000
+    environment:
+        - DB_HOST=${DB_HOST:-mysql}
+        - DB_USER=${DB_USER:-root}
+        - DB_PASS=${DB_PASS:-root}
+        - DB_NAME=${DB_NAME:-orcamento}
+    depends_on:
+      - mysql
+    links:
+      - mysql
+    networks:
+        - rede
+
+  mysql:
+    image: mariadb:10.4.12
+    command: --innodb-use-native-aio=0 --character-set-server=latin1 --collation-server=latin1_swedish_ci
+    ports:
+        - ${DB_PORT:-8501}:3306
+    volumes:
+        - ./data/:/var/lib/mysql
+    environment:
+        - MYSQL_DATABASE=${DB_NAME:-orcamento}
+        - MYSQL_ROOT_PASSWORD=${DB_PASS:-root}
+        - TZ=America/Fortaleza
+    networks:
+        - rede

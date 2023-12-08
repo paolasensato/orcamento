@@ -1,0 +1,17 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV.fetch("DB_USER") { 'root' } %>
+  password: <%= ENV.fetch("DB_PASS") { 'root' } %>
+  host: <%= ENV.fetch("DB_HOST") { 'mysql' } %>
+  database: <%= ENV.fetch("DB_NAME") { 'orcamento' } %>
+
+development:
+  <<: *default  
+
+test:
+  <<: *default
+  
+production:
+  <<: *default
