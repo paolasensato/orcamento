@@ -33,3 +33,6 @@ database.yml
 
 # Ignore byebug history
 .byebug_history
+
+# Mysql data
+data/
